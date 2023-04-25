@@ -1,0 +1,72 @@
+TRAITS,ABBREVIATIONS
+Leaf Chlorophyll Content (SPAD),SPAD
+Leaf Aarea (µmolCO2 m-2 s-1),L_Aarea
+Leaf Amass (nmolCO2 g-1 s-1),L_Amass
+Leaf Conductance (molH2O m-2 s-1),L_Con
+Leaf Ci (µmolCO2 molair-1),L_Ci
+Leaf iWUE,L_iWUE
+Leaf NightResparea (µmolCO2 m-2 s-1),L_NightRespArea
+Leaf NightRespmass (nmolCO2 g-1 s-1),L_NightRespmass
+Leaf Area (cm2),LA
+Leaf Perimeter (cm),L_Peri
+Leaf Circularity,L_Circ
+Leaf Solidity,LS
+LMA (g/m2),LMA
+Leaf Fresh Mass(g),L_FreshMass
+Leaf Dry Mass (g),L_DryMass
+Leaf Water Content (gH20/g dry mass),LWC
+LDMC (g dry mass/g fresh mass),LDMC
+Leaf Midrib Thickness(mm),L_MidribT
+Leaf Lamina Thickness(mm),L_LaminaT
+Leaf Toughness (g/mm2),L_Tough
+Leaf Lifespan (100%),L_life
+Leaf N (%),LN
+Leaf D15N,LD15N
+Leaf PNUE (nmolCO2 gN-1 s-1),LPNUE
+Leaf C (%),LC
+Leaf D13C,LD13C
+Leaf C:N Ratio,LCN
+Leaf P (%),LP
+Leaf N:P Ratio,Leaf_N_P
+Leaf Vein Density (mm/mm2),L_VeinD
+Leaf Tannin Activity (%),L_T_activity
+Leaf TrichomeDensity (# per cm2),LTD
+Leaf Lipid Content (%),L_LipidC
+Leaf Ash Content (%),L_AshC
+Whole Plant Total Biomass (g),WPTB
+Whole Plant Belowground Mass Fraction,WPBMF
+Whole Plant Stem Mass Fraction,WPSMF
+Whole Plant Leaf Mass Fraction,WPLMF
+Whole Plant Reproductive Mass Fraction,WPRMF
+Whole Plant First Bud (Julian day),WPFB
+Whole Plant First Flower (Julian day),WPFF
+Flower Petals Fresh Mass (g),FPFM
+Flower Disc Fresh Mass (g),FDFM
+Flower Receptacle Fresh Mass (g),FRFM
+Flower Total Fresh Mass (g),FTFM
+Flower Petals Dry Mass (g),FPDM
+Flower Disc Dry Mass (g),FDDM
+Flower Receptacle Dry Mass (g),FRDM
+Flower Total Dry Mass (g),FTDM
+Flower Petal Water Content (g H20 / g dry mass),FPWC
+Flower Disc Water Content (g H20 / g dry mass),FDWC
+Flower Receptacle Water Content (g H20 / g dry mass),FRWC
+Flower Total Water Content (g H20 / g dry mass),FTWC
+Flower Dry Mass Investment Ratio (Petals:Disc),P_D
+Flower Petal Dry Mass Fraction (Petal/Total),P_T
+Flower Disc Dry Mass Fraction (Disc/Total),D_T
+Flower Receptacle Dry Mass Fraction (Recep/Total),R_T
+Flower Ray Length (cm),FRL
+Flower Ray Width (cm),FRW
+Flower Disc Diameter (cm),FDD
+Flower Disc Circumference (cm),FDC
+Flower Total Diameter (cm),FTD
+Flower Total Circumference (cm),FTC
+Flower Total Area (cm2),FTA
+Flower Disc Area (cm2),FDA
+Flower Petal Area (cm2),FPA
+Flower Ray Number,FRN
+Flower Petal Density (#/cm disc circumference),FPD
+Flower Area Investment Ratio (Petals:Disc),FAIR
+Flower Petal Area Fraction (Petal/Total),FPAF
+Flower Disc Area Fraction (Disc/Total),FDAF
