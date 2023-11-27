@@ -1,11 +1,4 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+
 
 library(shiny) 
 library(bslib)
@@ -18,6 +11,7 @@ library(RColorBrewer)
 
 ### Loading the datasets ### 
 
+
 Gini_Importance <- readRDS("Gini_Importance_combined.RDS") %>% 
                            rename(Phylogeny_Level = `Phylogenetic Level`) %>% 
                            mutate(Groups = "All")
@@ -26,17 +20,11 @@ Optimal_subset <- readRDS("Optimal_subset.RDS") %>%
                       rename(Phylogeny_Level = `Phylogenetic Level`) %>% 
                       mutate(Groups = "Optimal Subset")
 
-Most_Divergent <- readRDS("Most_Divergent.RDS") %>% 
-                      rename(Phylogeny_Level = `Phylogenetic Level`) %>% 
-                      mutate(Groups = "Most Divergent") %>% 
-                      select(meanImp,Feature:Groups) %>% 
-                      rename(Overall = meanImp) %>% 
-                      rename(Features = Feature)
 
 
 ### Merge the three datasets ### 
 
-Importances <- rbind(Gini_Importance,Optimal_subset,Most_Divergent)
+Importances <- rbind(Gini_Importance,Optimal_subset)
 
 
 Importances$Trait_type <- factor(Importances$Trait_type, 
@@ -48,12 +36,27 @@ Glossary <- read.csv("Glossary.csv") %>%
                        rename(Features = ABBREVIATIONS) %>% 
                        rename(Trait_name = TRAITS)
 
+### removing the units ### 
+
+Glossary$Trait_name <- iconv(Glossary$Trait_name, from = "latin1", to = "UTF-8")
+
+
+Glossary$Trait_name <- gsub("\\s*\\([^)]+\\)$", "", Glossary$Trait_name)
+
+
+
+##############
 
 Importances <- Importances %>% inner_join(Glossary,
                            by="Features")
 
 ## removing the units ##
-Importances$Trait_name <- gsub("\\(.*?\\)", "", Importances$Trait_name)
+Importances$Trait_name <- iconv(Importances$Trait_name, from = "latin1", 
+                                to = "UTF-8")
+
+
+Importances$Trait_name <- gsub("\\s*\\([^)]+\\)$", "", Importances$Trait_name)
+
 
 #### Load the 3D plots ###
 
@@ -79,7 +82,7 @@ ui <- fluidPage(
                h1("Description"),
                p("This accompanying shiny app showcases some of the key results 
                from the study titled - 'A Machine Learning approach to study plant 
-               functional trait divergence', authored by Sambadi Majumder and
+               functional trait divergence', authored by Dr. Sambadi Majumder and
                Dr. Chase Mason. More information about this study can be found 
                here:doi: https://doi.org/10.1101/2023.03.16.533012.
                
@@ -116,6 +119,10 @@ ui <- fluidPage(
                insights into the ecological strategies of plant species, which can help 
                researchers compare studies in different systems, conduct meta-analysis, 
                and forecast future vegetation dynamics under a changing climate."),
+               
+               # Add the Glossary table display here
+               h2("Glossary: Trait Abbreviations"),
+               tableOutput("glossaryTableDisplay"),  # Display the table
                
                h2("References"),
                
@@ -159,6 +166,13 @@ ui <- fluidPage(
 
 server <- function(input,output,session){  
   
+  # Render the Glossary table
+  output$glossaryTableDisplay <- renderTable({
+    # Assuming Glossary is a dataframe or a similar structure that can be rendered as a table
+    Glossary
+  })
+  
+
   ### server logic for hierarchical dropdowns ###
   
   ## Phylogeny Levels 
